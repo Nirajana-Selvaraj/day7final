@@ -27,7 +27,13 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
-
+app.get("/", (req, res) => {
+  res.json({
+    server: "welcome to backend server..",
+    url: "localhost",
+    PORT: { PORT },
+  });
+});
 // Signup Route
 app.post('/api/signup', async (req, res) => {
   const { name, email, password } = req.body;
